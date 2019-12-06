@@ -1,0 +1,26 @@
+<p>personal-greeter works!</p>
+
+<div>
+  <label for="yourName">Please enter your name:</label>
+  <input
+    [(ngModel)]="yourName"
+    type="text"
+    name="your-name-field"
+    id="yourName"
+  />
+
+  <p *ngIf="yourName && yourName.length > 2; else noName">
+    Hello, {{ yourName }}
+  </p>
+
+  <!-- <p [hidden]="yourName.length &lt; 2">Hello, {{ yourName}}</p> -->
+
+  <!-- <p [ngStyle]="{ display: yourName.length > 2 ? 'block' : 'none'}">Hello, {{yourName}}</p> -->
+
+  <!-- <p [ngStyle]="yourNameDisplay()">Hello, {{yourName}}</p> -->
+
+  <!-- <p [ngClass]="{hide: yourName.length < 2 }">Hello, {{ yourName }}</p> -->
+  <ng-template #noName>
+    <p>Greetings</p>
+  </ng-template>
+</div>

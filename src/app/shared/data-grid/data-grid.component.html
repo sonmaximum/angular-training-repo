@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th
+        *ngFor="let column of columns"
+        (click)="handleHeaderClick(column.field)"
+        [ngClass]="getIndicator(column.field)"
+      >
+        <span>
+          {{ column.label }}
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of displayData" (click)="handleRowClick(row)">
+      <!-- <td *ngFor="let column of columns">{{ getPath(row, column.field) }}</td> -->
+      <td *ngFor="let column of columns">{{ row | findPath: column.field }}</td>
+    </tr>
+  </tbody>
+</table>
